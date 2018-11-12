@@ -1,0 +1,19 @@
+App back qui va consommer les web services de drive pour générer un nouveau service rest pour un IHM
+Cette app va générer les méthodes qui vont servir pour l'app définitif
+
+1/depuis le string xml de soap je génère la xsd
+méthode ==> generateXsdUsingXsdGen
+
+1/Créer les classes depuis la xsd
+
+2/méthode à tester
+	@Override
+	public void deserializeSimpleBeanFromXmlString() throws IOException {
+		// TODO Auto-generated method stub
+		
+		String xmlString ="<SimpleBean><x>1</x><y>2</y></SimpleBean>";
+		XmlMapper xmlMapper = new XmlMapper();
+		SimpleBean simpleBean = xmlMapper.readValue(xmlString, SimpleBean.class);
+		System.out.println(" simpleBean.getX() : " + simpleBean.getX());
+		System.out.println(" simpleBean.getY() : " + simpleBean.getY());
+	}

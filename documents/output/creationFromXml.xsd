@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Records">
+        <xsd:complexType mixed="true">
+            <xsd:sequence>
+                <xsd:element name="Metadata" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="FieldDefinitions" minOccurs="0">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="FieldDefinition" maxOccurs="unbounded">
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                    <xsd:extension base="xsd:string">
+                                                        <xsd:attribute name="id" type="xsd:int" use="required"/>
+                                                        <xsd:attribute name="guid" type="xsd:normalizedString" use="required"/>
+                                                        <xsd:attribute name="name" type="xsd:string" use="required"/>
+                                                        <xsd:attribute name="alias" type="xsd:normalizedString" use="required"/>
+                                                    </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="LevelCounts" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="LevelCount" minOccurs="0">
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="id" type="xsd:int" use="required"/>
+                                            <xsd:attribute name="guid" type="xsd:normalizedString" use="required"/>
+                                            <xsd:attribute name="count" type="xsd:int" use="required"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Record" maxOccurs="unbounded">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="Field" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:normalizedString">
+                                            <xsd:attribute name="id" type="xsd:int" use="required"/>
+                                            <xsd:attribute name="guid" type="xsd:normalizedString" use="required"/>
+                                            <xsd:attribute name="type" type="xsd:int" use="required"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="contentId" type="xsd:int" use="required"/>
+                        <xsd:attribute name="levelId" type="xsd:int" use="required"/>
+                        <xsd:attribute name="levelGuid" type="xsd:normalizedString" use="required"/>
+                        <xsd:attribute name="moduleId" type="xsd:int" use="required"/>
+                        <xsd:attribute name="parentId" type="xsd:int" use="required"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="count" type="xsd:int" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
